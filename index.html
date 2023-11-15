@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Git</title>
+  </head>
+  <body>
+    <header>
+      <h1>Git</h1>
+    </header>
+    <main>
+      <article class="git">
+        <details id="git">
+          <summary><a name="git">Git</a></summary>
+          <h2>Git</h2>
+          <p>Git es un sistema de control de versiones para el mantenimiento eficiente y confiable de archivos.</p>
+          <p>Git trabaja de forma descentralizada, lo que significa que cada desarrollador tiene una copia completa del historial de versiones de un proyecto, y puede trabajar sin conexión con ese historial.</p>
+          <p>Nos permite trabajar de forma colaborativa, ya que cada desarrollador puede trabajar en su propia rama y luego fusionar su trabajo con la rama principal.</p>
+          <section class="instalar-git">
+            <details id="instalar-git">
+              <summary><a name="instalar-git">Instalar Git</a></summary>
+              <h3>Instalar Git</h3>
+              <p>Para instalar <strong>Git</strong> en <strong>Windows, macOS o Linux</strong>, debemos descargar el instalador desde la página oficial de <strong>Git</strong>, <a href="https://git-scm.com/downloads" target="_blank" rel="noopener noreferrer">https://git-scm.com/downloads</a> .</p>
+              <p>Una vez descargado el instalador, lo ejecutamos y seguimos los pasos del asistente de instalación.</p>
+              <p>En <strong>Linux</strong> podemos instalar <strong>git</strong> con la terminal de comandos, ejecutando el comando <strong>sudo apt-get install git</strong>.</p>
+              <p>Para comprobar que <strong>Git</strong> se ha instalado correctamente, abrimos una terminal y ejecutamos el comando <strong>git --version</strong>.</p>
+              <p>Si se ha instalado correctamente, nos mostrará la versión de Git que tenemos instalada.</p>
+              <p>Si no se ha instalado correctamente, nos mostrará un mensaje de error.</p>
+              <p>Debemos configurar <strong>Git</strong> con nuestro nombre de usuario, correo electrónico y nuestro editor de texto por defecto, para que aparezcan en los commits que hagamos. Para ello debemos estar registrados en <strong>GitHub, GitLab o Bitbucket</strong>.</p>
+              <p>El comando <strong>git config --global user.name "nombreUsuario"</strong> nos permite especificar nuestro nombre de usuario. Esta información aparecerá en los commits.</p>
+              <p>El comando <strong>git config --global user.email "correoElectronico"</strong> nos permite especificar nuestro correo electrónico. Esta información aparecerá en los commits.</p>
+              <p>El comando <strong>git config --global init.defaultBranch main</strong> nos permite especificar el nombre de la rama principal. Por convenio se usa <strong>main</strong> en lugar de <strong>master</strong>.</p>
+              <p>El comando <strong>git config --global core.editor "code --wait"</strong> nos permite especificar nuestro editor de texto por defecto. En este caso, <strong>code</strong> indica que nuestro editor de texto por defecto es Visual Studio Code y <strong>--wait</strong> indica que Git debe esperar a que cerremos el archivo que estamos editando para continuar. Para los que usais <strong>Mac</strong>  sería con el comando <strong>git config --global core.editor "open -a 'Visual Studio Code' --wait"</strong>.</p>
+              <p>El comando <strong>git config --global -e</strong> nos permite editar el archivo de configuración de Git en VS Code.</p>
+              <p>El comando <strong>git config --global core.autocrlf valor</strong> nos permite especificar si queremos que Git convierta los saltos de línea de <strong>Windows</strong> a saltos de línea de <strong>Linux/Mac</strong> o viceversa. El valor debe ser <strong>true</strong> para los que esten trabajando en <strong>Windows</strong> e <strong>input</strong> para los que esten trabajando en <strong>Linux/Mac</strong>.</p>
+              <p>Para poder investigar mas a fondo la configuración de git podemos usar el comando <strong>git config -h</strong>, esto nos mostrara una lista de comandos que podemos usar para configurar git.</p>
+              <code>
+                git config --global user.name "nombreUsuario"
+                git config --global user.email "correoElectronico"
+                git config --global init.defaultBranch main
+                git config --global core.editor "code --wait"
+                git config --global core.editor "open -a 'Visual Studio Code' --wait"
+                git config --global -e
+                git config --global core.autocrlf valor
+
+              </code>
+              <a href="#instalar-git" class='return' title='Instalar Git'>
+                <svg class='icon' height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" fill-rule="evenodd">
+                    <path d="m0 0h32v32h-32z" />
+                    <path class="fill"
+                      d="m16 0c8.836556 0 16 7.163444 16 16s-7.163444 16-16 16-16-7.163444-16-16 7.163444-16 16-16zm.0715729 9.25735931-.0209322.021-.0222136-.021-7.07106779 7.07106779 1.41421359 1.4142136 4.6710678-4.6702814v10.4276407h2v-10.4436407l4.6857864 4.6862814 1.4142136-1.4142136z"
+                      fill="#202327" />
+                  </g>
+                </svg>
+              </a>
+            </details>
+          </section>
+          <section class="ssh">
+            <details id="ssh">
+              <summary><a name="ssh">SSH</a></summary>
+              <h3>SSH</h3>
+              <p>SSH es un protocolo de red que nos permite conectarnos a un servidor remoto de forma segura.</p>
+              <p>Para conectarnos a un servidor remoto con SSH, debemos generar una clave pública y privada.</p>
+              <p>Para generar una clave pública y privada, abrimos una terminal y ejecutamos el comando <strong>ssh-keygen -t ed25519 -C "tu-email@dominio.com"</strong>.</p>
+              <p>El comando <strong>ssh-keygen</strong> nos permite generar una clave pública y privada.</p>
+              <p>El parámetro <strong>-t ed25519</strong> nos permite especificar el tipo de clave que queremos generar. En este caso, <strong>ed25519</strong> es el tipo de clave que queremos generar.</p>
+              <p>El parámetro <strong>-C "correoElectronico"</strong> nos permite especificar un comentario que queramos añadir a la clave. En este caso, <strong>"correoElectronico"</strong> es el comentario que queremos añadir a la clave.</p>
+              <p>El comando nos preguntará dónde queremos guardar la clave. Si pulsamos la tecla <strong>Enter</strong>, se guardará en la ruta por defecto.</p>
+              <p>El comando nos preguntará si queremos añadir una contraseña a la clave. Si pulsamos la tecla <strong>Enter</strong>, no añadiremos contraseña a la clave.</p>
+              <p>Una vez generado el par de claves, debemos añadir la clave pública a nuestro servidor remoto.</p>
+              <p>Para añadir la clave pública a nuestro servidor remoto, debemos copiar el contenido de la clave pública.</p>
+              <p>Para copiar el contenido de la clave pública, abrimos una terminal y ejecutamos el comando <strong>cat ~/.ssh/id_ed25519.pub</strong>.</p>
+              <p>El comando <strong>cat</strong> nos permite mostrar el contenido de un archivo.</p>
+              <p>El parámetro <strong>~/.ssh/id_ed25519.pub</strong> nos permite especificar la ruta del archivo que queremos mostrar. En este caso, <strong>~/.ssh/id_ed25519.pub</strong> es la ruta del archivo que queremos mostrar.</p>
+              <p>El comando nos mostrará el contenido de la clave pública.</p>
+              <p>Una vez copiado el contenido de la clave pública, debemos añadirlo a nuestro servidor remoto.</p>
+              <p>Para añadir la clave pública a nuestro servidor remoto, debemos ir a la interfaz web de nuestro servidor remoto y añadir la clave pública.</p>
+              <p>Una vez añadida la clave pública a nuestro servidor remoto, ya podemos conectarnos a nuestro servidor remoto con SSH.</p>
+              <a href="#ssh" class='return' title='SSH'>
+                <svg class='icon' height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" fill-rule="evenodd">
+                    <path d="m0 0h32v32h-32z" />
+                    <path class="fill"
+                      d="m16 0c8.836556 0 16 7.163444 16 16s-7.163444 16-16 16-16-7.163444-16-16 7.163444-16 16-16zm.0715729 9.25735931-.0209322.021-.0222136-.021-7.07106779 7.07106779 1.41421359 1.4142136 4.6710678-4.6702814v10.4276407h2v-10.4436407l4.6857864 4.6862814 1.4142136-1.4142136z"
+                      fill="#202327" />
+                  </g>
+                </svg>
+              </a>
+            </details>
+          </section>
+          <section class="conceptos-git">
+            <details id="conceptos-git">
+              <summary><a name="conceptos-git">Conceptos básicos de git</a></summary>
+              <h3>Conceptos básicos</h3>
+              <ul>
+                <li class='repositorio'>
+                  <h4>Repositorio</h4>
+                  <p>Al trabajar con git lo que hacemos es crear un <strong>Repositorio</strong>.</p>
+                  <p>Un <strong>Repositorio</strong> es el lugar donde se almacenan los archivos de un proyecto. Puede ser local o remoto.</p>
+                  <ul>
+                    <li>
+                      <h5>Repositorio local</h5>
+                      <p>Es el creado de forma local en nuestro ordenador.</p>
+                      <p>Se crea en la carpeta del proyecto con el comando <strong>git init</strong>.</p>
+                    </li>
+                    <li>
+                      <h5>Repositorio remoto</h5>
+                      <p>Se  crea en un servidor externo como <strong>GitHub</strong>, <strong>GitLab</strong> o <strong>Bitbucket</strong>.</p>
+                    </li>
+                  </ul>
+                </li>
+                <li class="etapas">
+                  <h4>Etapas</h4>
+                  <p>Es el proceso que sigue git para llevar a cabo las acciones de <strong>add</strong>, <strong>commit</strong> y <strong>push</strong>.</p>
+                  <ul>
+                    <li>
+                      <h5>Working directory</h5>
+                      <p>Es el directorio de trabajo. Es el lugar donde se encuentran los archivos del proyecto.</p>
+                    </li>
+                    <li>
+                      <h5>Staging area</h5>
+                      <p>Es el área de preparación. Es el lugar donde se encuentran los archivos que se van a añadir al repositorio.</p>
+                    </li>
+                    <li>
+                      <h5>Commit</h5>
+                      <p>Es el lugar donde se encuentran los archivos del proyecto que están listos para ser enviados al repositorio remoto.</p>
+                      <p>La <strong>Statging area</strong> estaría vacía.</p>
+                    </li>
+                    <li>
+                      <h5>Server</h5>
+                      <p>Es el <strong>Repositorio remoto</strong> donde se encuentran los archivos del proyecto.</p>
+                    </li>
+                  </ul>
+                </li>
+                <li class="add">
+                  <h4>Add</h4>
+                  <p>Es el proceso de añadir los archivos al área de preparación. Se puede comparar con el proceso de añadir los archivos a una cesta de la compra.</p>
+                </li>
+                <li class='commit'>
+                  <h4>Commit</h4>
+                  <p>Es una instantánea de los archivos del proyecto en un momento determinado. Se puede comparar con una fotografía de los archivos en ese momento.</p>
+                </li>
+                <li class='branch'>
+                  <h4>Branch</h4>
+                  <p>Es una <strong>rama</strong> o línea de desarrollo independiente. Cada <strong>rama</strong> contiene una serie de <strong>commits</strong>.</p>
+                </li>
+                <li class='merge'>
+                  <h4>Merge</h4>
+                  <p>Es la <strong>fusión</strong> o unión de dos <strong>ramas</strong>. Se puede comparar con la fusión de dos ramas de un árbol genealógico.</p>
+                </li>
+                <li class='checkout'>
+                  <h4>Checkout</h4>
+                  <p>Es el proceso de moverse entre <strong>ramas</strong>. Se puede comparar con cambiar de página en un libro.</p>
+                </li>
+                <li class='push'>
+                  <h4>Push</h4>
+                  <p>Es el proceso de subir los <strong>commits locales</strong> a un <strong>repositorio remoto</strong>.</p>
+                </li>
+                <li class="pull-request">
+                  <h4>Pull Request</h4>
+                  <p>Es la solicitud de incorporar los <strong>commits</strong> de una <strong>rama</strong> a otra.</p>
+                </li>
+                <li class='pull'>
+                  <h4>Pull</h4>
+                  <p>Es el proceso de traer los <strong>commits</strong> de un <strong>repositorio remoto</strong> a un <strong>repositorio local</strong>.</p>
+                </li>
+                <li class='clone'>
+                  <h4>Clone</h4>
+                  <p>Es el proceso de copiar un <strong>repositorio remoto</strong> a un <strong>repositorio local</strong>.</p>
+                </li>
+                <li class='fetch'>
+                  <h4>Fetch</h4>
+                  <p>Es el proceso de traer los <strong>commits</strong> de un <strong>repositorio remoto</strong> a un <strong>repositorio local</strong> sin fusionarlos con la rama actual.</p>
+                </li>
+                <li class="stash">
+                  <h4>Stash</h4>
+                  <p>Es el proceso de guardar los cambios de la rama actual en una pila de cambios para poder trabajar en otra rama.</p>
+                  
+                </li>
+
+              </ul>
+              <a href="#conceptos-git" class='return' title='Conceptos básicos de git'>
+                <svg class='icon' height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" fill-rule="evenodd">
+                    <path d="m0 0h32v32h-32z" />
+                    <path class="fill"
+                      d="m16 0c8.836556 0 16 7.163444 16 16s-7.163444 16-16 16-16-7.163444-16-16 7.163444-16 16-16zm.0715729 9.25735931-.0209322.021-.0222136-.021-7.07106779 7.07106779 1.41421359 1.4142136 4.6710678-4.6702814v10.4276407h2v-10.4436407l4.6857864 4.6862814 1.4142136-1.4142136z"
+                      fill="#202327" />
+                  </g>
+                </svg>
+              </a>
+            </details>
+          </section>
+          <section class="crear-repositorio">
+            <details id="crear-repositorio">
+              <summary><a name="crear-repositorio">Crear un repositorio</a></summary>
+              <h3>Crear un repositorio</h3>
+              <ul>
+                <li class="plataformas">
+                  <h4>Plataforma</h4>
+                  <p>Se puede crear un repositorio en las siguientes plataformas: <strong>GitHub, GitLab o Bitbucket</strong>.</p>
+                </li>
+                <li class="repositorio-remoto">
+                  <h4>Repositorio remoto</h4>
+                  <ol>
+                    <li>
+                      <p>Para crear un <strong>repositorio remoto</strong> debemos acceder a la interfaz web de <strong>GitHub, GitLab o Bitbucket</strong> y crear un nuevo repositorio.</p>
+                    </li>
+                    <li>
+                      <p>Una vez creado el repositorio, debemos clonar el repositorio remoto en un repositorio local. Esto lo podemos hacer por <strong>HTTPS</strong> o por <strong>SSH</strong>.</p>  
+                      <ul>
+                        <li>
+                          <h5>Clonar repositorio remoto por HTTPS</h5>
+                          <code>
+                            git clone https://github.com/LuisHackABoss/pruebasGit.git
+
+                          </code>
+                        </li>
+                        <li>
+                          <h5>Clonar repositorio remoto por SSH</h5>
+                          <code>
+                            git clone git@github.com:LuisHackABoss/pruebasGit.git
+
+                          </code>
+                        </li>
+                      </ul>                
+                    </li>
+                  </ol>
+                </li>
+                <li class="repositorio-local">
+                  <h4>Repositorio local</h4>
+                  <ol>
+                    <li class='crear-repo-local'>
+                      <p>Para crear un <strong>repositorio local</strong> debemos situarnos en la <strong>carpeta del proyecto</strong> y ejecutar el comando <strong>git init</strong>.</p>
+                      <p>Si no hay <strong>carpeta del proyecto</strong> podemos crearla con el comando <strong>mkdir nombreCarpeta</strong>, situarnos en ella con el comando <strong>cd nombreCarpeta</strong> y ejecutar el comando <strong>git init</strong>.</p>
+                      <p>No influye si la carpeta está vacía o contiene archivos.</p>
+                      <p>Este comando crea una carpeta oculta llamada <strong>.git</strong> que contiene toda la información del <strong>repositorio</strong>.</p>
+                      <p>Para comprobar que se ha creado el repositorio local, podemos ejecutar el comando <strong>ls -a</strong> para listar los archivos y carpetas ocultas y comprobar que existe la carpeta <strong>.git</strong>.</p>
+                    </li>
+                    <li class="enlazar-al-repositorio-remoto">
+                      <p>Tenemos que crear un <strong>repositorio remoto</strong> en <strong>GitHub, GitLab o Bitbucket</strong> para poder vincularle el <strong>repositorio local</strong>.</p>
+                      <p>Una vez creado el repositorio remoto, lo vinculamos con el repositorio local por primera vez con el comando <strong>git remote add origin git@github.com:LuisHackABoss/nombreRepositorio</strong> si lo hacemos por <strong>HTTPS</strong> o <strong>git remote add origin git@github.com:nombreUsuario/nombreRepositori</strong> en el GitHub si lo hacemos por <strong>SSH</strong>.</p>
+                    </li>
+                    <li class="subir-commits-al-repositorio-remoto">
+                      <p>Para subir los commits locales al repositorio remoto, debemos ejecutar el comando <strong>git push -u origin main</strong>.</p>
+                    </li>
+                  </ol>
+                </li>
+              </ul>
+              <a href="#crear-repositorio" class='return' title='Crear Repositorio'>
+                <svg class='icon' height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" fill-rule="evenodd">
+                    <path d="m0 0h32v32h-32z" />
+                    <path class="fill"
+                      d="m16 0c8.836556 0 16 7.163444 16 16s-7.163444 16-16 16-16-7.163444-16-16 7.163444-16 16-16zm.0715729 9.25735931-.0209322.021-.0222136-.021-7.07106779 7.07106779 1.41421359 1.4142136 4.6710678-4.6702814v10.4276407h2v-10.4436407l4.6857864 4.6862814 1.4142136-1.4142136z"
+                      fill="#202327" />
+                  </g>
+                </svg>
+              </a>
+            </details>
+          </section>
+          <section class='git-add'>
+            <details id="git-add">
+              <summary><a name="git-add">Git Add</a></summary>
+              <h3>Git Add</h3>
+              <p>Añadimos los cambios de un archivo a la etapa de staged con el comando <strong>git add nombreArchivo</strong>.</p>
+              <p>Si quiero añadir varios archivos a la etapa de staged, debemos ejecutar el comando <strong>git add nombreArchivo1 nombreArchivo2</strong>.</p>
+              <p>Si queremos añadir todos los cambios de todos los archivos de una extensión a la etapa de staged, debemos ejecutar el comando <strong>git add *.extensión</strong>.</p>
+              <p>Si queremos añadir todos los cambios de todos los archivos a la etapa de staged, debemos ejecutar el comando <strong>git add .</strong>.</p>
+              <p>Si ejecutamos el comando <strong>git status</strong> nos mostrará que no hay <strong>commits</strong> todavía y que el archivo <strong>README.md</strong> está preparado para el commit.</p>
+              <p>Si ejecutamos el comando <strong>git log</strong> nos mostrará que no hay <strong>commits</strong> todavía.</p>
+              <a href="#git-add" class='return' title='Git Add'>
+                <svg class='icon' height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" fill-rule="evenodd">
+                    <path d="m0 0h32v32h-32z" />
+                    <path class="fill"
+                      d="m16 0c8.836556 0 16 7.163444 16 16s-7.163444 16-16 16-16-7.163444-16-16 7.163444-16 16-16zm.0715729 9.25735931-.0209322.021-.0222136-.021-7.07106779 7.07106779 1.41421359 1.4142136 4.6710678-4.6702814v10.4276407h2v-10.4436407l4.6857864 4.6862814 1.4142136-1.4142136z"
+                      fill="#202327" />
+                  </g>
+                </svg>
+              </a>
+            </details>
+          </section>
+          <section class='git-commit'>
+            <details id="git-commit">
+              <summary><a name="git-commit">Git Commit</a></summary>
+              <h3>Git Commit</h3>
+              <p>Para crear el primer commit, debemos ejecutar el comando <strong>git commit -m "first commit"</strong>.</p>
+              <p>El <strong>-m</strong> indica que lo siguiente es el mensaje del commit.</p>
+              <p>Si ejecutamos el comando <strong>git status</strong> nos mostrará que en la rama <strong>main</strong> no hay nada para hacer commit, la Staging area está vacía y el árbol de trabajo está limpio.</p>
+              <p>Hay <strong>commits</strong> en el repositorio local, pero no en el repositorio remoto.</p>
+              <p>Si ejecutamos el comando <strong>git log</strong> nos mostrará el <strong>hash</strong> del commit, el <strong>autor</strong>, la <strong>fecha</strong> y el <strong>mensaje</strong> del commit.</p>
+              <a href="#git-commit" class='return' title='Git Commit'>
+                <svg class='icon' height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" fill-rule="evenodd">
+                    <path d="m0 0h32v32h-32z" />
+                    <path class="fill"
+                      d="m16 0c8.836556 0 16 7.163444 16 16s-7.163444 16-16 16-16-7.163444-16-16 7.163444-16 16-16zm.0715729 9.25735931-.0209322.021-.0222136-.021-7.07106779 7.07106779 1.41421359 1.4142136 4.6710678-4.6702814v10.4276407h2v-10.4436407l4.6857864 4.6862814 1.4142136-1.4142136z"
+                      fill="#202327" />
+                  </g>
+                </svg>
+              </a>
+            </details>
+          </section>
+          <section class="cambios-add-commit">
+            <details id="cambios-add-commit">
+              <summary><a name="cambios-add-commit">Cambios, add y commit</a></summary>
+              <h3>Cambios, add y commit</h3>
+              <p>Si hacemos cambios en el archivo <strong>README.md</strong> y queremos añadirlos al repositorio local, debemos ejecutar los comandos <strong>git add .</strong> y <strong>git commit -m "mensaje"</strong>.</p>
+              <p>Si ejecutamos el comando <strong>git log</strong> o <strong>git log --oneline</strong> nos mostrará los <strong>commits</strong> realizados que se han ido añadiendo al repositorio local.</p>
+              <p>Si me he confundido y quiero cambiar el mensaje del último commit, debemos ejecutar el comando <strong>git commit --amend -m "mensaje"</strong>.</p>
+              <p>Si quiero deshacer el último commit pero mantener los cambios en el área de trabajo, debemos ejecutar el comando <strong>git reset --soft HEAD^</strong>.</p>
+              <p>Si quiero deshacer el último commit sin mantener los cambios en el área de trabajo, debemos ejecutar el comando <strong>git reset --hard HEAD^</strong>.</p>
+              <a href="#cambios-add-commit" class='return' title='Cambios, add y commit'>
+                <svg class='icon' height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" fill-rule="evenodd">
+                    <path d="m0 0h32v32h-32z" />
+                    <path class="fill"
+                      d="m16 0c8.836556 0 16 7.163444 16 16s-7.163444 16-16 16-16-7.163444-16-16 7.163444-16 16-16zm.0715729 9.25735931-.0209322.021-.0222136-.021-7.07106779 7.07106779 1.41421359 1.4142136 4.6710678-4.6702814v10.4276407h2v-10.4436407l4.6857864 4.6862814 1.4142136-1.4142136z"
+                      fill="#202327" />
+                  </g>
+                </svg>
+              </a>
+            </details>
+          </section>
+          <section class="ignorar-archivos-directorios">
+            <details id="ignorar-archivos-directorios">
+              <summary><a name="ignorar-archivos-directorios">Ignorar archivos y directorios</a></summary>
+              <h3>Ignorar archivos y directorios</h3>
+              <p>Para ignorar archivos y directorios debemos crear un archivo llamado <strong>.gitignore</strong> en la raíz del proyecto.</p>
+              <p>En el archivo <strong>.gitignore</strong> debemos escribir los nombres de los archivos y directorios que queremos ignorar.</p>
+              <p>Si queremos ignorar todos los archivos de un tipo, debemos escribir el nombre del tipo de archivo precedido de un punto como por ejemplo <strong>.env</strong>.</p>
+              <p>Si queremos ignorar todos los archivos de un directorio, debemos escribir el nombre del directorio precedido de una barra como por ejemplo <strong>node_modules</strong>.</p>
+              <p>Si queremos ignorar todos los archivos de un tipo que se encuentren en un directorio, debemos escribir el nombre del directorio seguido de una barra y el nombre del tipo de archivo precedido de un punto como por ejemplo <strong>img/.png</strong>.</p>
+              <code>
+                .env
+                node_modules
+                img/.png
+              </code>
+              <a href="#ignorar-archivos-directorios" class='return' title='Ignorar archivos y directorios'>
+                <svg class='icon' height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" fill-rule="evenodd">
+                    <path d="m0 0h32v32h-32z" />
+                    <path class="fill"
+                      d="m16 0c8.836556 0 16 7.163444 16 16s-7.163444 16-16 16-16-7.163444-16-16 7.163444-16 16-16zm.0715729 9.25735931-.0209322.021-.0222136-.021-7.07106779 7.07106779 1.41421359 1.4142136 4.6710678-4.6702814v10.4276407h2v-10.4436407l4.6857864 4.6862814 1.4142136-1.4142136z"
+                      fill="#202327" />
+                  </g>
+                </svg>
+              </a>
+            </details>
+          </section>
+          <section class="status-simplificado">
+            <details id="status-simplificado">
+              <summary><a name="status-simplificado">Status simplificado</a></summary>
+              <h3>Status simplificado</h3>
+              <p>Para ver el status simplificado de nuestro repositorio local debemos ejecutar el comando <strong>git status -s</strong>.</p>
+              <p>Si queremos ver el status simplificado de un archivo en concreto, debemos ejecutar el comando <strong>git status -s nombreArchivo</strong>.</p>
+              <p>Si queremos ver el status simplificado de un directorio en concreto, debemos ejecutar el comando <strong>git status -s nombreDirectorio</strong>.</p>
+              <a href="#status-simplificado" class='return' title='Status simplificado'>
+                <svg class='icon' height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" fill-rule="evenodd">
+                    <path d="m0 0h32v32h-32z" />
+                    <path class="fill"
+                      d="m16 0c8.836556 0 16 7.163444 16 16s-7.163444 16-16 16-16-7.163444-16-16 7.163444-16 16-16zm.0715729 9.25735931-.0209322.021-.0222136-.021-7.07106779 7.07106779 1.41421359 1.4142136 4.6710678-4.6702814v10.4276407h2v-10.4436407l4.6857864 4.6862814 1.4142136-1.4142136z"
+                      fill="#202327" />
+                  </g>
+                </svg>
+              </a>
+            </details>
+          </section>
+          <section class="historial">
+            <details id="historial">
+              <summary><a name="historial">Historial</a></summary>
+              <h3>Historial</h3>
+              <p>Para ver el historial de nuestro repositorio local, debemos ejecutar el comando <strong>git log</strong>.</p>
+              <p>Si queremos ver el historial de un archivo en concreto, debemos ejecutar el comando <strong>git log nombreArchivo</strong>.</p>
+              <p>Si queremos ver el historial de un directorio en concreto, debemos ejecutar el comando <strong>git log nombreDirectorio</strong>.</p>
+              <p>Si queremos ver el historial simplificado de nuestro repositorio local, debemos ejecutar el comando <strong>git log --oneline</strong>.</p>
+              <a href="#historial" class='return' title='Historial'>
+                <svg class='icon' height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" fill-rule="evenodd">
+                    <path d="m0 0h32v32h-32z" />
+                    <path class="fill"
+                      d="m16 0c8.836556 0 16 7.163444 16 16s-7.163444 16-16 16-16-7.163444-16-16 7.163444-16 16-16zm.0715729 9.25735931-.0209322.021-.0222136-.021-7.07106779 7.07106779 1.41421359 1.4142136 4.6710678-4.6702814v10.4276407h2v-10.4436407l4.6857864 4.6862814 1.4142136-1.4142136z"
+                      fill="#202327" />
+                  </g>
+                </svg>
+              </a>
+            </details>
+          </section>
+          <section class="ver-cambios">
+            <details id="ver-cambios">
+              <summary><a name="ver-cambios">Ver cambios</a></summary>
+              <h3>Ver cambios</h3>
+              <p>Para ver los cambios que hemos realizado en un archivo, debemos ejecutar el comando <strong>git diff nombreArchivo</strong>.</p>
+              <p>Si queremos ver los cambios que hemos realizado en un directorio, debemos ejecutar el comando <strong>git diff nombreDirectorio</strong>.</p>
+              <p>Si queremos ver los cambios que hemos realizado en un commit, debemos conseguir primero la id del commit con el comando <strong>git log</strong> y despues ejecutar el comando <strong>git diff idCommit</strong>.</p>
+              <p>Si queremos ver los cambios que hemos realizado en la etapa <strong>staging</strong>, debemos ejecutar el comando <strong>git diff --staged</strong>.</p>
+              <a href="#ver-cambios" class='return' title='Ver cambios'>
+                <svg class='icon' height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="none" fill-rule="evenodd">
+                    <path d="m0 0h32v32h-32z" />
+                    <path class="fill"
+                      d="m16 0c8.836556 0 16 7.163444 16 16s-7.163444 16-16 16-16-7.163444-16-16 7.163444-16 16-16zm.0715729 9.25735931-.0209322.021-.0222136-.021-7.07106779 7.07106779 1.41421359 1.4142136 4.6710678-4.6702814v10.4276407h2v-10.4436407l4.6857864 4.6862814 1.4142136-1.4142136z"
+                      fill="#202327" />
+                  </g>
+                </svg>
+              </a>
+            </details>
+          </section>
+          <a href="#git" class='return' title='Git'>
+            <svg class='icon' height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" fill-rule="evenodd">
+                <path d="m0 0h32v32h-32z" />
+                <path class="fill"
+                  d="m16 0c8.836556 0 16 7.163444 16 16s-7.163444 16-16 16-16-7.163444-16-16 7.163444-16 16-16zm.0715729 9.25735931-.0209322.021-.0222136-.021-7.07106779 7.07106779 1.41421359 1.4142136 4.6710678-4.6702814v10.4276407h2v-10.4436407l4.6857864 4.6862814 1.4142136-1.4142136z"
+                  fill="#202327" />
+              </g>
+            </svg>
+          </a>
+        </details>
+      </article>
+    </main>
+        
+    <script src="/script/script.js"></script>
+  </body>
+</html>
